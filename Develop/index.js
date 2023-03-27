@@ -65,10 +65,20 @@ const questions = [
 ]
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+fs.writeFile('GeneratedReadme.md', content, function(error) {
+    if (error) throw error;
+    console.log('Problem generating readme, try again.')
+})  
+
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer
+    .prompt(questions)
+    .then((response) => {
+        writeToFile(response.title, response)
+    }) 
+}
 
 // Function call to initialize app
 init();
