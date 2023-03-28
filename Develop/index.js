@@ -1,8 +1,9 @@
-// TODO: Include packages needed for this application
+// Includes packages needed for this application
 const inquirer = require('inquirer');
+const generateMarkdown = require('./utils/generateMarkdown.js')
 const fs = require('fs');
 
-// TODO: Create an array of questions for user input
+// Creates an array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -17,17 +18,17 @@ const questions = [
       {
         type: 'input',
         message: 'Please enter your installation instructions:',
-        name: 'installInstr',
+        name: 'installation',
       },
       {
         type: 'input',
         message: 'Please enter your usage information:',
-        name: 'usageInfo',
+        name: 'usage',
       },
       {
         type: 'input',
         message: 'Please enter contribution guidelines"',
-        name: 'contributionGuide',
+        name: 'contribution',
       },
       {
         type: 'input',
@@ -44,11 +45,8 @@ const questions = [
             'BSD2-Clause "Simplified" License',
             'BSD 3-Clause "New" or "Revised" License',
             'Boost Software License 1.0',
-            'Creative Commons Zero v1.0 Universal',
             'Eclipse Public License 2.0',
-            'GNU Affero General Public LIcense v3.0',
             'GNU General Public License v2.0',
-            'GNU Lesser General Public License v2.1'
         ],
         name: 'license',
       },
@@ -65,13 +63,15 @@ const questions = [
 ]
 
 // TODO: Create a function to write README file
-fs.writeFile('GeneratedReadme.md', content, function(error) {
-    if (error) throw error;
-    console.log('Problem generating readme, try again.')
-})  
+function writeToFile(fileName, data) {
+    content = generateMarkdown.generateMarkdown(data)    
+    fs.writeFile('GeneratedReadme.md', content, function(error) {
+        if (error) throw error;
+            console.log('Problem generating readme, try again.')
+    })
+} 
 
-
-// TODO: Create a function to initialize app
+//Creates a function to initialize app
 function init() {
     inquirer
     .prompt(questions)
