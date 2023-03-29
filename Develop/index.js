@@ -27,7 +27,7 @@ const questions = [
       },
       {
         type: 'input',
-        message: 'Please enter contribution guidelines"',
+        message: 'Please enter contribution guidelines',
         name: 'contribution',
       },
       {
@@ -62,7 +62,7 @@ const questions = [
       }
 ]
 
-// TODO: Create a function to write README file
+// Creates a function to write README file
 function writeToFile(fileName, data) {
     content = generateMarkdown.generateMarkdown(data)    
     fs.writeFile('GeneratedReadme.md', content, function(error) {
