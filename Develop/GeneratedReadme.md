@@ -45,4 +45,3 @@ this application is licensed under MIT license. For more information about this 
 
 [Choosealicense.com](https://choosealicense.com/appendix/)
 
-[link to walkthrough video](https://youtu.be/uQDxA90S8wA)
